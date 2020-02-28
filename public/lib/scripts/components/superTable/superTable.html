@@ -1,0 +1,41 @@
+<table class='table'>
+    <thead>
+        <tr>
+            <th ng-repeat="head in $ctrl.header">{{head.name}}</th>
+            <th>Ver</th>
+        </tr>
+        <tr>
+            <td ng-repeat="head in $ctrl.header">
+                <input type="text" placeholder="{{head.placeholder}}" ng-if="head.filter" ng-model="filtered[head.sort]" ng-change="filterBy(head.sort)" class="form-control input-sm search-input" style="width:100%">
+            </td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat='item in $ctrl.data | startFromGrid: currentPage * pageSize | limitTo: pageSize | filter: filtered'>
+            <td ng-repeat="head in $ctrl.header">{{item[head.sort]}}</td>
+            <td>
+                <button class="btn btn-xs btn-info" ng-click="$ctrl.options.view(item)">
+                    <i class="ion-eye"></i> Ver
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="text-center" colspan="{{$ctrl.header.length + 1}}"> 
+                <div class='btn-group text-center'>
+                    <nav>
+                        <ul class="pagination">
+                            <li ng-class="{'active':currentPage == page.no - 1}" ng-repeat='page in pages'>
+                                <a ng-disabled='currentPage == page.no - 1' ng-click='setPage(page.no)' >
+                                        {{page.no}}
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </td>
+        </tr>        
+    </tfoot>
+</table>

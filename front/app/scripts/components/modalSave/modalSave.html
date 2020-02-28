@@ -1,0 +1,9 @@
+
+<h4>{{$ctrl.title}}</h4>
+<hr>
+<div class="clearfix">
+    <form role="form" name="saveForm" novalidate>
+        <super-inputs data="input" model="$ctrl.model[input.id]" ng-repeat="input in $ctrl.inputs"></super-inputs>            
+        <button class="btn btn-success" ng-click="$ctrl.save()" ng-disabled="saveForm.$invalid">Guardar</button>
+    </form>
+</div> 

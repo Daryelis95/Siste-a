@@ -1,0 +1,32 @@
+$icon-font-path: '../fonts/';
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/font-awesome/scss/font-awesome.scss";
+// endbower
+
+//Config
+@import "conf/_mixins.scss";
+@import "conf/colorScheme/_mint.scss";
+@import "conf/_variables.scss";
+@import "conf/_layout.scss";
+@import "conf/_contentTop.scss";
+@import "conf/_preloader.scss";
+@import "conf/_respond-to.scss";
+@import "conf/_grid-system.scss";
+@import 'app/form.scss';
+@import 'app/custom-modal.scss';
+@import 'app/_pieCharts.scss';
+//end Config
+
+//Theme
+@import "theme/_panel.scss";
+@import "theme/_table.scss";
+//End Theme
+
+// Components
+@import "app/scripts/components/super-header/super-header.scss";
+@import "app/scripts/components/msgCenter/msgCenter.scss";
+@import "app/scripts/components/superSidebar/superSidebar.scss";
+
+@import "app/styles/app/app.scss";

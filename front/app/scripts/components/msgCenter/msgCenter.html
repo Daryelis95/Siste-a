@@ -1,0 +1,51 @@
+<ul class="al-msg-center clearfix">
+  <li uib-dropdown>
+    <a href uib-dropdown-toggle>
+      <i class="fa fa-bell-o"></i><span>{{notifications.length}}</span>
+
+      <div class="notification-ring"></div>
+    </a>
+
+    <div uib-dropdown-menu class="top-dropdown-menu">
+      <i class="dropdown-arr"></i>
+
+      <div class="header clearfix">
+        <strong>Notificaciones</strong>
+        <a href>Marcar como leidas</a>
+      </div>
+      <div class="msg-list">
+        <a href class="clearfix" ng-repeat="msg in notifications">
+          <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.user.image}" ng-src="{{msg.user.image}}"></div>
+          <div class="msg-area">
+            <strong>{{ msg.user.name }}</strong> <span>{{ msg.description}}</span>
+            <span>{{ msg.time }}</span>
+          </div>
+        </a>
+      </div>
+      <a href>Ver todos las notificaciones</a>
+    </div>
+  </li>
+  <li uib-dropdown>
+    <a href class="msg" uib-dropdown-toggle>
+      <i class="fa fa-envelope-o"></i><span>{{messages.length}}</span>
+      <div class="notification-ring"></div>
+    </a>
+    <div uib-dropdown-menu class="top-dropdown-menu">
+      <i class="dropdown-arr"></i>
+      <div class="header clearfix">
+        <strong>Mensajes</strong>
+        <a href>Marcar como leidos</a>
+      </div>
+      <div class="msg-list">
+        <a href class="clearfix" ng-repeat="msg in messages">
+          <div class="img-area"><img class="photo-msg-item" ng-src="{{msg.user.image}}"></div>
+          <div class="msg-area">
+            <div>{{ msg.description }}</div>
+            <span>{{ msg.time }}</span>
+          </div>
+        </a>
+      </div>
+      <a href>Ver todos los mensajes</a>
+    </div>
+  </li>
+</ul>

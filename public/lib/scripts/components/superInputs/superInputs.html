@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label for="{{$ctrl.data.id}}">{{$ctrl.data.name}}</label>
+    <input type="{{$ctrl.data.type}}" 
+        class="form-control" id="{{$ctrl.data.id}}" 
+        placeholder="{{$ctrl.data.name}}" 
+        ng-model="$ctrl.model"  
+        ng-required="$ctrl.data.required"
+        ng-if="$ctrl.data.type !== 'select'">
+    <select class="form-control" id="{{$ctrl.data.id}}" 
+        placeholder="{{$ctrl.data.name}}" 
+        ng-model="$ctrl.model"  
+        ng-required="$ctrl.data.required"
+        ng-if="$ctrl.data.type === 'select'">
+        <option value="">Seleccione</option>
+        <option value="{{option.value}}" ng-repeat="option in $ctrl.data.options">{{option.label}}</option>
+    </select>
+</div>

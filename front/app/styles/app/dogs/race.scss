@@ -1,0 +1,9 @@
+.content-5{
+    @include make-me-column(2, 10, 0);
+    @include respond-to(ph){
+        @include make-me-column(10, 10, 0);
+    }
+}
+.content-table{
+    padding: 5px;
+}

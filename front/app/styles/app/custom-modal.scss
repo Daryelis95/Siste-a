@@ -1,0 +1,107 @@
+$pg-blue: #4C93EA;
+$pg-orange: #F67B45;
+$swing-angle: 2deg;
+
+
+@media screen and (max-height: 30em) {
+  
+  .popeye-modal.custom-modal img {
+    display: none;
+  }
+}
+
+// Customize the Popeye defaults for all modals on the demo page
+.popeye-modal-container.custom-modal {
+  .popeye-modal.custom-modal {
+    width: 40%;
+    min-width: 18em;
+    min-height: 10em;
+    text-align: center;
+
+    img {
+      height: 10em;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+// "Zoom!" example:
+// 1) Add "demo-container zoom" classes via "containerClass" option
+// 2) Change background to orange
+// 3) Speed up the modal container animation (defaults to 0.7s)
+// 4) Override the modal enter/leave animations to zoom-in and zoom-out
+.popeye-modal-container.custom-modal.zoom {
+  background-color: rgba(246, 123, 69, 0.7);
+
+  &.ng-enter {
+    animation-duration: 0.5s;
+
+    .popeye-modal {
+      animation: zoom-in 0.5s ease-out;
+    }
+  }
+
+  &.ng-leave {
+    animation-duration: 0.5s;
+
+    .popeye-modal {
+      animation: zoom-out 0.5s ease-in;
+    }
+  }
+}
+
+@keyframes zoom-in {
+  0% { transform: scale(0.1, 0.1) rotateZ(360deg); }
+  100% { transform: scale(1, 1) rotateZ(0deg); }
+}
+
+@keyframes zoom-out {
+  0% { transform: scale(1, 1) rotateZ(0deg); }
+  100% { transform: scale(3, 3) rotateZ(-360deg); }
+}
+
+// "Small" example:
+// 1) Add "custom-modal small" classes via "modalClass" option
+// 2) Set width to smaller than normal, tweak padding
+.popeye-modal-container.small .popeye-modal {
+  width: 30%;
+  min-width: 0;
+  min-height: 0;
+  padding: 15px;
+}
+.popeye-modal-container.medium .popeye-modal {
+  width: 45%;
+  min-width: 0;
+  min-height: 0;
+  padding: 15px;
+}
+
+// "Boring" example:
+// 1) Add "demo-container boring" classes via "containerClass" option
+// 2) Change background to grey
+// 3) Disable all enter/leave animations
+.popeye-modal-container.custom-modal.boring {
+  background-color: rgba(0, 0, 0, 0.2);
+
+  &.ng-enter {
+    animation: none;
+
+    .popeye-modal {
+      animation: none;
+    }
+  }
+
+  &.ng-leave {
+    animation: none;
+
+    .popeye-modal {
+      animation: none;
+    }
+  }
+}
+
+@keyframes swing {
+  0% { transform: rotate($swing-angle); }
+  50% { transform: rotate(-$swing-angle); }
+  100% { transform: rotate($swing-angle); }
+}
